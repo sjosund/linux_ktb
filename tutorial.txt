@@ -1,0 +1,142 @@
+Redirection of I/O streams
+--------------------------
+STDIN (0)
+cat
+cat ...
+cat < ...
+
+STDOUT (1)
+>
+>>
+
+STDERROR (2)
+ll /hh
+ll /hh 2> error.txt
+/dev/null
+
+
+Commands
+--------
+find . -name "..."
+
+grep text file(s)
+grep -i Text file(s)
+grep -v text file(s)
+
+tee
+
+cat
+cat -n
+
+sort
+sort -u
+sort -h
+
+tail
+tail -f
+
+head
+
+tr
+tr -d
+tr -s
+
+echo
+
+touch
+
+wget
+wget -O google_file www.google.se
+
+cut
+cut -c3-5 file
+cut -d' ' -f2 file_1
+
+
+wc
+
+du
+du -h
+
+
+Pipes
+-----
+
+cat file | less
+cat ./* | wc -l | tee word_count.txt | seq
+seq $(cat ./* | wc -l | tee word_count.txt)
+
+
+Problem solving
+---------------
+1. Create a command that cds into the last updated directory.
+2. Output a sorted list of the files larger than 1M in the present directory
+   and subdirectories. Check the Watty repo with it.
+3. Count the number of lines in the whole Watty repo
+
+
+Filesystem
+----------
+
+/boot
+-----
+The /boot directory contains all the files that are needed for the boot process.
+
+/etc
+----
+Contains all system related configuration files.
+
+/sbin
+-----
+Contains executable programs. Mostly administrative tools. Compared to the
+files in /bin, the files in /sbin are normally only used by the root user.
+
+/bin
+----
+Contains binaries for commonly used programs such as cat, cp, etc.
+Also usually contains the shells like bash and csh. Compared to /usr/bin
+the commands in /bin are the ones that are considered to be essensial.
+
+/usr
+----
+Contains system-wide read-only files. All user installed programs and libraries
+goes into here.
+
+/var
+----
+Contains files that vary over time, such as logs, cached files, temporary files
+and lock files.
+
+/dev
+----
+Contains device and special files. These are interfaces for device drivers,
+but do not need to correspond to actual physical devices (an example of this
+is /dev/null, which is considered to be a pseudo-device).
+
+/home
+-----
+Contains the users home directories. Here users can store various files. A user
+stores his personal configuration files (dot-files) here.
+
+
+
+Permission and users
+--------------------
+
+chmod
+chmod {u|g|o}+-{r|w|x}
+chmod 777
+1 x
+2 w
+4 r
+
+7 = 1 + 2 + 4 = rwx
+
+adduser username
+chown
+
+addgroup groupname
+gpasswd -a username groupname
+chgrp groupname .
+
+
